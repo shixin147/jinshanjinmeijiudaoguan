@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>晋善晋美酒道馆 - 招商合作</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2C3E50',      // 深蓝灰 - 主色调
+                        secondary: '#ECF0F1',    // 浅灰白 - 辅助色
+                        gold: '#F39C12',         // 金色 - 点缀
+                        dark: '#34495E',         // 深灰蓝
+                        light: '#FFFFFF',        // 纯白背景
+                        cream: '#F8F9FA',        // 米白色
+                        accent: '#E67E22',       // 橙色 - 强调色
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'elegant': '0 10px 30px rgba(0, 0, 0, 0.15)',
+                        'hover': '0 20px 40px rgba(0, 0, 0, 0.2)',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .text-gradient {
+                background: linear-gradient(135deg, #F39C12, #E67E22);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent; /* 兼容非webkit浏览器 */
+            }
+            .bg-gradient-primary {
+                background: linear-gradient(135deg, #2C3E50, #34495E);
+            }
+            .bg-gradient-gold {
+                background: linear-gradient(135deg, #F39C12, #E67E22);
+            }
+            .card-hover {
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+            .card-hover:hover {
+                transform: translateY(-8px);
+            }
+            .glass-effect {
+                background: rgba(255, 255, 255, 0.08);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .video-overlay {
+                background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0) 100%);
+            }
+            .招商-card {
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                cursor: pointer; /* 增加鼠标指针样式 */
+            }
+            .招商-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            }
+            .招商-card img {
+                transition: all 0.6s ease;
+            }
+            .招商-card:hover img {
+                transform: scale(1.08);
+            }
+        }
+    </style>
+    
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #F8F9FA;
+            color: #333333;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.85), rgba(52, 73, 94, 0.9)), 
+                        url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/babe9a0ad6e2407285b7ec64c474891c.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202603121651512498AAA29968989E942C&rrcfp=8a172a1a&x-expires=1773910311&x-signature=REbO7XlCZUwwlJlxnlFztQlHtL0%3D') center/cover no-repeat;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            transition: all 0.3s ease;
+        }
+        
+        .modal-content {
+            position: relative;
+            margin: auto;
+            width: 90%;
+            max-width: 1200px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #f1f1f1;
+            font-size: 36px;
+            font-weight: bold;
+            transition: 0.3s;
+            z-index: 1001;
+            cursor: pointer;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #D4AF37;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .video-container:hover .video-controls {
+            opacity: 1;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 5px;
+            background-color: rgba(255,255,255,0.2);
+            margin-bottom: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: #D4AF37;
+            width: 0%;
+        }
+        
+        .control-buttons button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            margin-right: 15px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .control-buttons button:hover {
+            color: #D4AF37;
+        }
+        
+        .volume-slider {
+            width: 100px;
+            margin-left: 10px;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            
+            .video-controls {
+                opacity: 1;
+            }
+            
+            /* 移动端导航菜单样式 */
+            .mobile-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+                z-index: 99;
+            }
+            
+            .mobile-menu a {
+                color: #2C3E50;
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+                transition: background-color 0.2s;
+            }
+            
+            .mobile-menu a:hover {
+                background-color: #F8F9FA;
+            }
+            
+            .mobile-menu a.bg-gradient-primary {
+                color: white;
+                text-align: center;
+            }
+        }
+        
+        /* 加载动画 */
+        .loader {
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top: 5px solid #D4AF37;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -25px;
+            margin-left: -25px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1A1A1A;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C09A28;
+        }
+        
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* 表单提交成功提示 */
+        .form-success {
+            display: none;
+            background-color: #10B981;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/381873be733a4afa9668c54579b0da29.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=202603121630486F7F3DCC50CF9E3B7997&rrcfp=8a172a1a&x-expires=1773909048&x-signature=xURZXBUq35cG%2B8diMsPjeW31S8I%3D" alt="晋善晋美酒道馆" class="h-12">
+                </div>
+                <!-- 桌面端导航 -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-gold transition-colors font-medium">首页</a>
+                    <a href="#videos" class="text-gray-700 hover:text-gold transition-colors font-medium">品牌宣传片</a>
+                    <a href="#about" class="text-gray-700 hover:text-gold transition-colors font-medium">关于我们</a>
+                    <a href="#contact" class="bg-gradient-primary text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all">
+                        <i class="fa fa-phone mr-2"></i>联系我们
+                    </a>
+                </div>
+                <!-- 移动端导航按钮 -->
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700 text-2xl">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <!-- 移动端导航菜单 -->
+                <div id="mobileMenu" class="mobile-menu hidden md:hidden">
+                    <a href="#home" class="text-gray-700 hover:text-gold transition-colors font-medium">首页</a>
+                    <a href="#videos" class="text-gray-700 hover:text-gold transition-colors font-medium">品牌宣传片</a>
+                    <a href="#about" class="text-gray-700 hover:text-gold transition-colors font-medium">关于我们</a>
+                    <a href="#contact" class="bg-gradient-primary text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all">
+                        <i class="fa fa-phone mr-2"></i>联系我们
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 英雄区域 -->
+    <section id="home" class="hero-section min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 py-20">
+            <div class="max-w-4xl mx-auto text-center animate-fade-in">
+                <div class="inline-block mb-6">
+                    <span class="bg-white/10 backdrop-blur-sm text-gold px-6 py-2 rounded-full border border-white/20 text-sm font-medium">
+                        山西晋善晋美酒道馆管理公司
+                    </span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight text-shadow">
+                    酒道开天地<br>一馆定乾坤
+                </h1>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+                    <a href="#videos" class="bg-gradient-gold text-white px-8 py-4 rounded-lg font-bold text-lg hover:shadow-elegant transition-all">
+                        <i class="fa fa-play-circle mr-3"></i>观看品牌宣传片
+                    </a>
+                    <a href="#contact" class="bg-white/10 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/20 transition-all">
+                        <i class="fa fa-handshake-o mr-3"></i>合作咨询
+                    </a>
+                </div>
+                
+                <!-- 参考图片展示 -->
+                <div class="mt-16 animate-fade-in">
+                    <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/93c37dbb9cba4acf9a6147ce8b3b6712.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202603121635581D49E1A4DE1D9FF86129&rrcfp=8a172a1a&x-expires=1773909358&x-signature=BANgDg3QApHJYqm9ZyCG0RjL5Rk%3D" alt="晋善晋美酒道馆" class="w-full max-w-4xl mx-auto rounded-xl shadow-2xl border-4 border-gold">
+                </div>
+                
+                <!-- 核心优势 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+                    <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 card-hover">
+                        <div class="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa fa-history text-gold text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">150年传承</h3>
+                        <p class="text-white/70">始于1875年集贤堡老烧坊，五代匠心坚守</p>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 card-hover">
+                        <div class="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa fa-certificate text-gold text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">权威背书</h3>
+                        <p class="text-white/70">央视媒体见证，杏花村汾酒专业镇政府支持</p>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 card-hover">
+                        <div class="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa fa-line-chart text-gold text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">商业价值</h3>
+                        <p class="text-white/70">高端圈层社交，品牌展示，合伙人赋能平台</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容区 -->
+    <main class="container mx-auto px-4 py-12 bg-light">
+        <section id="videos" class="py-20 bg-gradient-to-b from-light to-cream">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <div class="inline-block mb-4">
+                        <span class="bg-primary/10 text-primary px-6 py-2 rounded-full text-sm font-medium">
+                            招商视频展示
+                        </span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+                        见证<span class="text-gradient">晋善晋美</span>的力量
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        通过品牌宣传片了解晋善晋美150年的品牌历程、央视权威见证、企业实力展示、旗舰店风采以及文化传承
+                    </p>
+                </div>
+            
+            <!-- 品牌宣传片卡片网格 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 视频卡片 1 -->
+                <div class="招商-card bg-white rounded-xl overflow-hidden shadow-elegant" data-video="videos/150th_anniversary.mp4">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/38418e07639d47c794ff4b254344a538~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260312151801B7CA5926953AE23B8799&rrcfp=f06b921b&x-expires=1775891900&x-signature=LWFEAkqDaD3Pb%2B8mMDMpJRYpw3M%3D" alt="百年传承·壹伍零" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 video-overlay flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-gold/90 flex items-center justify-center transition-transform hover:scale-110 shadow-lg">
+                                <i class="fa fa-play text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
+                            150周年纪念
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">百年传承·壹伍零</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            一百五十年，于人生是岁月长河，于佳酿是匠心开篇。本片穿越时光长廊，带您见证晋善晋美，从1875年集贤堡老烧坊，到现代酒业集团的百年征程。
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">
+                                <i class="fa fa-clock-o mr-1"></i> 15分钟
+                            </span>
+                            <span class="text-sm text-gold font-medium">
+                                品牌史诗
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 视频卡片 2 -->
+                <div class="招商-card bg-white rounded-xl overflow-hidden shadow-elegant" data-video="videos/cctv_documentary.mp4">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://p11-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/5c2aad5baee04a2db0900d821a7ef6d9~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260312151801B7CA5926953AE23B8799&rrcfp=f06b921b&x-expires=1775891901&x-signature=Xqtln6m4K40uIwdNtW68Sea%2B7Yo%3D" alt="央视镜头下的酒魂" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 video-overlay flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-gold/90 flex items-center justify-center transition-transform hover:scale-110 shadow-lg">
+                                <i class="fa fa-play text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                            央视记录
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">央视镜头下的酒魂</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            央视镜头，记录真实。本片跟随CCTV的视角，深入探寻晋善晋美背后的酿造哲学与人文故事。权威媒体的见证，是我们对品质最好的承诺。
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">
+                                <i class="fa fa-clock-o mr-1"></i> 10分钟
+                            </span>
+                            <span class="text-sm text-gold font-medium">
+                                权威见证
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 视频卡片 3 -->
+                <div class="招商-card bg-white rounded-xl overflow-hidden shadow-elegant" data-video="videos/modern_enterprise.mp4">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://p11-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/85ed65eb4be44370b203d75d2b0260e8~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260312151801B7CA5926953AE23B8799&rrcfp=f06b921b&x-expires=1775891902&x-signature=nZ6Yl7rfs8tctRdRhMY157sDlak%3D" alt="大清香时代下的酒业新势力" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 video-overlay flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-gold/90 flex items-center justify-center transition-transform hover:scale-110 shadow-lg">
+                                <i class="fa fa-play text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">
+                            企业实力
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">大清香时代下的酒业新势力</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            从历史中走来，在当下焕新。本片全景展示晋善晋美今日风貌：生态酿造基地、现代化灌装线、专业团队、以及遍布全国的圈层网络。
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">
+                                <i class="fa fa-clock-o mr-1"></i> 4分钟
+                            </span>
+                            <span class="text-sm text-gold font-medium">
+                                企业风采
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 视频卡片 4 -->
+                <div class="招商-card bg-white rounded-xl overflow-hidden shadow-elegant" data-video="videos/taiyuan_flagship.mp4">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://p11-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/10946bd9f6e94f33b29a0a87998645d1~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260312151801B7CA5926953AE23B8799&rrcfp=f06b921b&x-expires=1775891924&x-signature=LuW%2F%2Fz4qkh3WnQpI3rVDaZ0AGbg%3D" alt="龙城启幕" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 video-overlay flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-gold/90 flex items-center justify-center transition-transform hover:scale-110 shadow-lg">
+                                <i class="fa fa-play text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
+                            旗舰示范
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">龙城启幕·太原旗舰店开业盛典</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            太原，不是终点，是起点。本片记录晋善晋美太原总部旗舰店盛大启幕。立足太原柳巷食品街核心商圈，坐拥年度千万人流。
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">
+                                <i class="fa fa-clock-o mr-1"></i> 8分钟
+                            </span>
+                            <span class="text-sm text-gold font-medium">
+                                旗舰风采
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 视频卡片 5 -->
+                <div class="招商-card bg-white rounded-xl overflow-hidden shadow-elegant" data-video="videos/changzhi_model.mp4">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/7431b7cbd5f84a7fac3bda0c57c38965~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260312151801B7CA5926953AE23B8799&rrcfp=f06b921b&x-expires=1775891930&x-signature=RD8jBfS5%2Fa3QDCJCV%2F%2BDzVAlIZY%3D" alt="榜样的力量" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 video-overlay flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-gold/90 flex items-center justify-center transition-transform hover:scale-110 shadow-lg">
+                                <i class="fa fa-play text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                            招商案例
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">榜样的力量·长治标杆店诞生记</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            最好的招商文件，是合伙人真实的笑容。本片全景呈现晋善晋美长治酒道馆开业盛典，定格高朋满座、盛势启幕的恢弘场面。
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">
+                                <i class="fa fa-clock-o mr-1"></i> 6分钟
+                            </span>
+                            <span class="text-sm text-gold font-medium">
+                                成功案例
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 视频卡片 6 -->
+                <div class="招商-card bg-white rounded-xl overflow-hidden shadow-elegant" data-video="videos/ceremony.mp4">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/67d2fd7ceddf475da6ffa1ed5497fbb6~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260312151801B7CA5926953AE23B8799&rrcfp=f06b921b&x-expires=1775891923&x-signature=iqPsn3Qc%2FQvE1M44OTDQBfHOFO8%3D" alt="一坛酒的加冕" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 video-overlay flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-gold/90 flex items-center justify-center transition-transform hover:scale-110 shadow-lg">
+                                <i class="fa fa-play text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">
+                            文化体验
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">一坛酒的加冕·开坛封坛大典</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            开坛，是岁月醇香的相逢；封坛，是时光予未来的期许。本片以东方美学为笔，以匠心仪式为序，完整呈现晋善晋美独有的开坛、封坛大典。
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">
+                                <i class="fa fa-clock-o mr-1"></i> 5分钟
+                            </span>
+                            <span class="text-sm text-gold font-medium">
+                                文化仪式
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 招商优势 -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <div class="inline-block mb-4">
+                        <span class="bg-primary/10 text-primary px-6 py-2 rounded-full text-sm font-medium">
+                            为什么选择晋善晋美
+                        </span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+                        五大招商<span class="text-gradient">核心优势</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        150年品牌沉淀，权威背书，专业运营，为您的创业之路保驾护航
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gradient-primary text-white p-8 rounded-2xl shadow-elegant card-hover">
+                        <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-trophy text-secondary text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">品牌优势</h3>
+                        <p class="text-white/80 leading-relaxed">
+                            150年历史传承，从1875年集贤堡老烧坊到现代酒业集团，五代匠心坚守，品牌价值深厚。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-primary text-white p-8 rounded-2xl shadow-elegant card-hover">
+                        <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-certificate text-secondary text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">权威背书</h3>
+                        <p class="text-white/80 leading-relaxed">
+                            央视媒体专题报道，山西杏花村汾酒专业镇政府支持，品质与信誉的双重保障。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-primary text-white p-8 rounded-2xl shadow-elegant card-hover">
+                        <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-map-marker text-secondary text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">区位优势</h3>
+                        <p class="text-white/80 leading-relaxed">
+                            太原旗舰店位于柳巷食品街核心商圈，年度千万人流，品牌展示与销售的绝佳位置。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-primary text-white p-8 rounded-2xl shadow-elegant card-hover">
+                        <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-users text-secondary text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">圈层资源</h3>
+                        <p class="text-white/80 leading-relaxed">
+                            高端圈层社交平台，汇聚政商精英，为合伙人提供优质的人脉资源与商业机会。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-primary text-white p-8 rounded-2xl shadow-elegant card-hover">
+                        <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-handshake-o text-secondary text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">运营支持</h3>
+                        <p class="text-white/80 leading-relaxed">
+                            专业的运营团队，全方位的开店支持，从选址装修到人员培训，一站式服务。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-primary text-white p-8 rounded-2xl shadow-elegant card-hover">
+                        <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-line-chart text-secondary text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">投资回报</h3>
+                        <p class="text-white/80 leading-relaxed">
+                            高毛利产品结构，多元化盈利模式，快速回本周期，稳健的投资回报率。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 联系我们 -->
+        <section id="contact" class="py-20 bg-gradient-primary text-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="inline-block mb-6">
+                        <span class="bg-white/10 text-secondary px-6 py-2 rounded-full text-sm font-medium">
+                            开启合作之旅
+                        </span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        与晋善晋美<span class="text-gradient">共创辉煌</span>
+                    </h2>
+                    <p class="text-xl text-white/80 mb-12 max-w-2xl mx-auto">
+                        加入晋善晋美酒道馆，成为我们的合作伙伴，共享150年品牌价值，开启白酒招商新时代
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
+                            <div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                                <i class="fa fa-phone text-secondary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">招商热线</h3>
+                            <p class="text-white/80 text-lg mb-2">13353513623</p>
+                            <p class="text-white/60">周一至周日 9:00-18:00</p>
+                        </div>
+                        
+                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
+                            <div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                                <i class="fa fa-envelope text-secondary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">招商邮箱</h3>
+                            <p class="text-white/80 text-lg mb-2">1803602889@qq.com</p>
+                            <p class="text-white/60">24小时内回复咨询</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
+                        <h3 class="text-xl font-bold mb-6">在线咨询</h3>
+                        <!-- 表单成功提示 -->
+                        <div class="form-success" id="formSuccess">
+                            <i class="fa fa-check-circle mr-2"></i> 您的咨询已提交成功，我们会尽快与您联系！
+                        </div>
+                        <form id="contactForm" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <input type="text" placeholder="姓名" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-secondary" required>
+                                <input type="tel" placeholder="电话" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-secondary" required>
+                            </div>
+                            <input type="text" placeholder="意向区域" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-secondary">
+                            <textarea placeholder="留言内容" rows="4" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-secondary"></textarea>
+                            <button type="submit" class="w-full bg-gradient-gold text-primary font-bold py-4 rounded-lg hover:shadow-lg transition-all">
+                                提交咨询
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 视频文件替换说明 -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="bg-white rounded-2xl shadow-elegant p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-6">视频文件替换说明</h2>
+                    <div class="text-gray-700 space-y-4">
+                        <p>1. 在您的网站目录中创建一个名为 <code class="bg-gray-100 px-2 py-1 rounded text-primary">videos</code> 的文件夹</p>
+                        <p>2. 将您的6个MP4视频文件放入该文件夹中，并使用以下文件名：</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><code class="bg-gray-100 px-2 py-1 rounded text-primary">150th_anniversary.mp4</code> - 百年传承·壹伍零</li>
+                            <li><code class="bg-gray-100 px-2 py-1 rounded text-primary">cctv_documentary.mp4</code> - 央视镜头下的酒魂</li>
+                            <li><code class="bg-gray-100 px-2 py-1 rounded text-primary">modern_enterprise.mp4</code> - 大清香时代下的酒业新势力</li>
+                            <li><code class="bg-gray-100 px-2 py-1 rounded text-primary">taiyuan_flagship.mp4</code> - 龙城启幕·太原旗舰店开业盛典</li>
+                            <li><code class="bg-gray-100 px-2 py-1 rounded text-primary">changzhi_model.mp4</code> - 榜样的力量·长治标杆店诞生记</li>
+                            <li><code class="bg-gray-100 px-2 py-1 rounded text-primary">ceremony.mp4</code> - 一坛酒的加冕·开坛封坛大典</li>
+                        </ul>
+                        <p>3. 如果您希望使用不同的文件名，请修改HTML代码中每个视频卡片的 <code class="bg-gray-100 px-2 py-1 rounded text-primary">data-video</code> 属性值</p>
+                        <p>4. 支持的视频格式：MP4（推荐）、WebM、OGV</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-gold rounded-lg flex items-center justify-center">
+                            <span class="text-primary font-bold text-2xl">晋</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">晋善晋美酒道馆</h3>
+                            <p class="text-gray-400">山西晋善晋美酒道馆管理公司</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed max-w-md">
+                        150年传承，五代匠心。晋善晋美酒道馆致力于传承和弘扬中国传统白酒文化，打造高端白酒品鉴与社交平台。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fa fa-weixin text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fa fa-weibo text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fa fa-tiktok text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fa fa-youtube-play text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-6">快速链接</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-secondary transition-colors">首页</a></li>
+                        <li><a href="#videos" class="text-gray-400 hover:text-secondary transition-colors">招商视频</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-secondary transition-colors">关于我们</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-secondary transition-colors">联系我们</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">招商政策</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">常见问题</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-6">联系方式</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa fa-map-marker text-secondary mt-1"></i>
+                            <span class="text-gray-400">山西省太原市迎泽区柳巷食品街88号</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa fa-phone text-secondary"></i>
+                            <span class="text-gray-400">13353513623</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa fa-envelope text-secondary"></i>
+                            <span class="text-gray-400">1803602889@qq.com</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa fa-clock-o text-secondary"></i>
+                            <span class="text-gray-400">周一至周日 9:00-18:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    © 2026 山西晋善晋美酒道馆管理公司. 保留所有权利.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-secondary text-sm transition-colors">隐私政策</a>
+                    <a href="#" class="text-gray-500 hover:text-secondary text-sm transition-colors">服务条款</a>
+                    <a href="#" class="text-gray-500 hover:text-secondary text-sm transition-colors">网站地图</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 视频播放模态框 -->
+    <div id="videoModal" class="modal">
+        <span class="close">×</span>
+        <div class="modal-content">
+            <div class="video-container relative" style="padding-bottom: 56.25%; height: 0;">
+                <div class="loader" id="videoLoader"></div>
+                <video id="modalVideo" class="absolute top-0 left-0 w-full h-full" controls>
+                    您的浏览器不支持HTML5视频播放。
+                </video>
+                <div class="video-controls">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="control-buttons">
+                            <button id="playPauseBtn"><i class="fa fa-play"></i></button>
+                            <button id="muteBtn"><i class="fa fa-volume-up"></i></button>
+                            <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.1" value="1">
+                        </div>
+                        <div class="flex items-center">
+                            <span id="currentTime" class="text-white/80 text-sm mr-2">0:00</span>
+                            <span class="text-white/40 text-sm mr-2">/</span>
+                            <span id="duration" class="text-white/80 text-sm">0:00</span>
+                            <button id="fullscreenBtn" class="ml-4"><i class="fa fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取DOM元素
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            const closeBtn = document.getElementsByClassName('close')[0];
+            // 修复：选择正确的视频卡片class
+            const videoCards = document.querySelectorAll('.招商-card');
+            const videoLoader = document.getElementById('videoLoader');
+            
+            // 控制按钮
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const muteBtn = document.getElementById('muteBtn');
+            const volumeSlider = document.getElementById('volumeSlider');
+            const progressBar = document.getElementById('progressBar');
+            const progress = document.getElementById('progress');
+            const currentTimeEl = document.getElementById('currentTime');
+            const durationEl = document.getElementById('duration');
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            
+            // 移动端导航
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            // 联系表单
+            const contactForm = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            
+            // 移动端导航切换
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                // 切换图标
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+            
+            // 表单提交处理
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // 阻止默认提交
+                
+                // 显示成功提示
+                formSuccess.style.display = 'block';
+                
+                // 重置表单
+                this.reset();
+                
+                // 3秒后隐藏提示
+                setTimeout(() => {
+                    formSuccess.style.display = 'none';
+                }, 3000);
+            });
+            
+            // 打开模态框并播放视频
+            videoCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const videoSrc = this.getAttribute('data-video');
+                    modalVideo.src = videoSrc;
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // 防止背景滚动
+                    
+                    // 显示加载动画
+                    videoLoader.style.display = 'block';
+                    
+                    // 视频加载完成后隐藏加载动画并播放
+                    modalVideo.onloadeddata = function() {
+                        videoLoader.style.display = 'none';
+                        modalVideo.play();
+                        updatePlayPauseIcon();
+                    };
+                    
+                    // 获取视频标题和描述
+                    const title = this.querySelector('h3').textContent;
+                    const description = this.querySelector('p').textContent;
+                    
+                    // 可以在这里添加标题和描述到模态框
+                    // 例如: document.getElementById('videoTitle').textContent = title;
+                });
+            });
+            
+            // 关闭模态框
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+                modalVideo.pause();
+                modalVideo.src = ''; // 停止视频加载
+                document.body.style.overflow = 'auto'; // 恢复背景滚动
+            });
+            
+            // 点击模态框背景关闭
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    modalVideo.pause();
+                    modalVideo.src = '';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // 播放/暂停按钮
+            playPauseBtn.addEventListener('click', function() {
+                if (modalVideo.paused) {
+                    modalVideo.play();
+                } else {
+                    modalVideo.pause();
+                }
+                updatePlayPauseIcon();
+            });
+            
+            // 更新播放/暂停图标
+            function updatePlayPauseIcon() {
+                if (modalVideo.paused) {
+                    playPauseBtn.innerHTML = '<i class="fa fa-play"></i>';
+                } else {
+                    playPauseBtn.innerHTML = '<i class="fa fa-pause"></i>';
+                }
+            }
+            
+            // 静音按钮
+            muteBtn.addEventListener('click', function() {
+                modalVideo.muted = !modalVideo.muted;
+                updateMuteIcon();
+            });
+            
+            // 更新静音图标
+            function updateMuteIcon() {
+                if (modalVideo.muted) {
+                    muteBtn.innerHTML = '<i class="fa fa-volume-off"></i>';
+                    volumeSlider.value = 0;
+                } else {
+                    muteBtn.innerHTML = '<i class="fa fa-volume-up"></i>';
+                    volumeSlider.value = modalVideo.volume;
+                }
+            }
+            
+            // 音量滑块
+            volumeSlider.addEventListener('input', function() {
+                modalVideo.volume = this.value;
+                modalVideo.muted = (this.value === 0);
+                updateMuteIcon();
+            });
+            
+            // 进度条更新
+            modalVideo.addEventListener('timeupdate', function() {
+                const percent = (modalVideo.currentTime / modalVideo.duration) * 100;
+                progress.style.width = percent + '%';
+                
+                // 更新当前时间显示
+                currentTimeEl.textContent = formatTime(modalVideo.currentTime);
+            });
+            
+            // 视频加载完成后更新总时长
+            modalVideo.addEventListener('loadedmetadata', function() {
+                durationEl.textContent = formatTime(modalVideo.duration);
+            });
+            
+            // 点击进度条跳转
+            progressBar.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                modalVideo.currentTime = pos * modalVideo.duration;
+            });
+            
+            // 全屏按钮
+            fullscreenBtn.addEventListener('click', function() {
+                if (!document.fullscreenElement) {
+                    if (modalVideo.requestFullscreen) {
+                        modalVideo.requestFullscreen();
+                    } else if (modalVideo.mozRequestFullScreen) {
+                        modalVideo.mozRequestFullScreen();
+                    } else if (modalVideo.webkitRequestFullscreen) {
+                        modalVideo.webkitRequestFullscreen();
+                    } else if (modalVideo.msRequestFullscreen) {
+                        modalVideo.msRequestFullscreen();
+                    }
+                    fullscreenBtn.innerHTML = '<i class="fa fa-compress"></i>';
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.mozCancelFullScreen) {
+                        document.mozCancelFullScreen();
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                    }
+                    fullscreenBtn.innerHTML = '<i class="fa fa-expand"></i>';
+                }
+            });
+            
+            // 监听全屏变化
+            document.addEventListener('fullscreenchange', updateFullscreenIcon);
+            document.addEventListener('webkitfullscreenchange', updateFullscreenIcon);
+            document.addEventListener('mozfullscreenchange', updateFullscreenIcon);
+            document.addEventListener('MSFullscreenChange', updateFullscreenIcon);
+            
+            function updateFullscreenIcon() {
+                if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
+                    fullscreenBtn.innerHTML = '<i class="fa fa-expand"></i>';
+                } else {
+                    fullscreenBtn.innerHTML = '<i class="fa fa-compress"></i>';
+                }
+            }
+            
+            // 格式化时间为 分:秒
+            function formatTime(seconds) {
+                if (isNaN(seconds)) return '0:00'; // 处理NaN情况
+                const minutes = Math.floor(seconds / 60);
+                seconds = Math.floor(seconds % 60);
+                return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+            }
+            
+            // 键盘快捷键
+            document.addEventListener('keydown', function(e) {
+                if (modal.style.display === 'block') {
+                    switch(e.key) {
+                        case ' ':
+                        case 'k':
+                            e.preventDefault();
+                            if (modalVideo.paused) {
+                                modalVideo.play();
+                            } else {
+                                modalVideo.pause();
+                            }
+                            updatePlayPauseIcon();
+                            break;
+                        case 'm':
+                            e.preventDefault();
+                            modalVideo.muted = !modalVideo.muted;
+                            updateMuteIcon();
+                            break;
+                        case 'f':
+                            e.preventDefault();
+                            fullscreenBtn.click();
+                            break;
+                        case 'Escape':
+                            closeBtn.click();
+                            break;
+                        case 'ArrowLeft':
+                            e.preventDefault();
+                            modalVideo.currentTime = Math.max(0, modalVideo.currentTime - 5);
+                            break;
+                        case 'ArrowRight':
+                            e.preventDefault();
+                            modalVideo.currentTime = Math.min(modalVideo.duration, modalVideo.currentTime + 5);
+                            break;
+                    }
+                }
+            });
+            
+            // 点击导航链接关闭移动端菜单
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
